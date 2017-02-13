@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">s
+    <title>Hangman</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var wordBank = ["Lightsaber", "Sonic Screwdriver", "Flux Capacitor", "Neuralizer", "Hoverboard", "Proton Pack", "Phaser", "Tesla"];
+    var chosenWord;
+    var guessedLetters = [];
+    var gameBoard = [];
+    var missesLeft;
+    var wins = 0;
+    var losses = 0;
+
+    function newGame(){
+        console.log("Wins: " + wins);
+        console.log("Losses: " + losses);
+
+        gameBoard.length = 0; //resets the game board
+        guessedLetters.length = 0; //resets the guessed letter array
+        chosenWord = wordBank[Math.floor(Math.random() * wordBank.length)]; //randomly chooses word from wordBank
+        createBoard(chosenWord);
+        console.log(gameBoard.join(' ')); //displays game board
+        missesLeft = 6;
+
+    }
+
+    function createBoard(title) {
+
+        for(i = 0; i < title.length; i++){
+            var letter = title.charAt(i);
+            if(letter !== " ") //check for spaces
+            {
+                gameBoard.push('_'); //if not a space, add an underscore
+            }
+            else{
+                gameBoard.push(' '); //if IS a space, add a space
+            }
+        }
+    }
+
+    function checkForWin() {
+        if(gameBoard.indexOf("_") === -1){ //if no underscores are left in game board
+            alert("You Win!");
+            wins++;
+            newGame();
+        }
+    }
+
+    function checkForLoss() {
+        if(missesLeft < 1){
+            alert("You lose.");
+            losses++;
+            newGame();
+        }
+    }
+
+    function addToGuessedLetters(letter) {
+        for (i = 0; i < guessedLetters.length; i++)
+        {
+            if(guessedLetters[i] === letter.toUpperCase()){
+                return;
+            }
+        }
+        guessedLetters.push(letter.toUpperCase());
+    }
+    
+    function checkUserGuess(guess) {
+        if(chosenWord.toLowerCase().indexOf(guess.toLowerCase()) !== -1){ //if user guess is found in word
+            if(guess === ' '){
+                return;
+            }
+
+            for(i=0; i < chosenWord.length; i++){
+                if(chosenWord.charAt(i).toLowerCase() == guess.toLowerCase()){ //if user guess is equal to letter in position of i
+                    gameBoard[i] = chosenWord[i]; //update game board to correct letter from word
+                }
+            }
+            console.log(gameBoard.join(' ')); //display updated game board
+            checkForWin();
+        }
+        else {
+            missesLeft--;
+            console.log(missesLeft);
+            addToGuessedLetters(guess);
+            checkForLoss();
+        }
+
+        console.log("Letters you've guessed: " + guessedLetters.join(","));
+    }
+
+    newGame();
+    console.log("----------------------------------");
+    document.onkeyup = function (event) {
+        var userGuess = event.key;
+        checkUserGuess(userGuess);
+    }
+
+</script>
+</body>
+</html>
