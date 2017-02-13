@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">s
+    <meta charset="UTF-8">
     <title>Hangman</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 header">
+            <h1>Welcome to Sci-Fi Hangman!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 info-panel">
+            <div class="row">
+                <div class="col-md-12 scoreboard-panel">
+                    <h2>Game Info</h2>
+                    <h3>Wins: <span id="winCounter"></span></h3>
+                    <h3>Losses: <span id="lossCounter"></span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 trivia-panel">
+                    <h2>#FunFact!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 game-panel">
+            <div class="row">
+                <div class="col-md-12 answer-box">
+                    <h3>This is where the game is played</h3>
+                    <span id="gameboard"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 guessed-letters">
+                    <h3>This is where the guessed letters go</h3>
+                    <span id="usedLetters"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     var wordBank = ["Lightsaber", "Sonic Screwdriver", "Flux Capacitor", "Neuralizer", "Hoverboard", "Proton Pack", "Phaser", "Tesla"];
@@ -24,7 +63,7 @@
         guessedLetters.length = 0; //resets the guessed letter array
         chosenWord = wordBank[Math.floor(Math.random() * wordBank.length)]; //randomly chooses word from wordBank
         createBoard(chosenWord);
-        console.log(gameBoard.join(' ')); //displays game board
+        updateGameboard(); //displays game board
         missesLeft = 6;
 
     }
@@ -59,6 +98,20 @@
         }
     }
 
+    function updateScoreboard(){
+        var winText = document.getElementById("winCounter");
+        var lossText = document.getElementById("lossCounter");
+
+        winText.textContent = wins;
+        lossText.textContent = losses;
+    }
+
+    function updateGameboard() {
+        var gameText = document.getElementById("gameboard");
+
+        gameText.textContent = gameBoard.join(' ');
+    }
+
     function addToGuessedLetters(letter) {
         for (i = 0; i < guessedLetters.length; i++)
         {
@@ -80,7 +133,7 @@
                     gameBoard[i] = chosenWord[i]; //update game board to correct letter from word
                 }
             }
-            console.log(gameBoard.join(' ')); //display updated game board
+            updateGameboard(); //display updated game board
             checkForWin();
         }
         else {
@@ -93,6 +146,7 @@
         console.log("Letters you've guessed: " + guessedLetters.join(","));
     }
 
+    updateScoreboard();
     newGame();
     console.log("----------------------------------");
     document.onkeyup = function (event) {

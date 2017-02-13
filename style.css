@@ -1,0 +1,32 @@
+.header{
+    background-color: blanchedalmond;
+}
+
+.scoreboard-panel{
+    background-color: bisque;
+    height: 400px;
+}
+
+.trivia-panel{
+    background-color: bisque;
+    height: 400px;
+}
+
+.game-panel{
+    background-color: black;
+    color: #ffffff;
+    height: 800px;
+}
+
+.answer-box{
+    height: 600px;
+}
+
+.guessed-letters{
+    height: auto;
+}
+
+
+
+
+
