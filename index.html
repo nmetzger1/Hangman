@@ -48,7 +48,7 @@
 </div>
 
 <script type="text/javascript">
-    var wordBank = ["Lightsaber", "Sonic Screwdriver", "Flux Capacitor", "Neuralizer", "Hoverboard", "Proton Pack", "Phaser", "Tesla"];
+    var wordBank = ["Lightsaber", "Sonic Screwdriver", "Flux Capacitor", "Neuralizer", "Hoverboard", "Proton Pack", "Phaser", "Tesla", "Farnsworth", "Planet Express", "Death Star", "TARDIS", "Replicant", "Xenomorph", "Flukeman", "Metaluna Mutant", "The Upside Down", "Sharknado", "Nostromo", "Facehugger", "Serenity", "Cube", "Soylent Green", "The Running Man", "Skynet"];
     var chosenWord;
     var guessedLetters = [];
     var gameBoard = [];
@@ -94,7 +94,7 @@
 
     function checkForLoss() {
         if(missesLeft < 1){
-            alert("You lose.");
+            alert("You lose. The word was " + chosenWord);
             losses++;
             updateGameboard();
             newGame();
@@ -115,7 +115,7 @@
         var usedText = document.getElementById("usedLetters");
         var missText = document.getElementById("missCounter");
 
-        gameText.textContent = gameBoard.join(' ');
+        gameText.textContent = gameBoard.join('');
         usedText.textContent = guessedLetters.join(',');
         missText.textContent = missesLeft;
     }
@@ -124,7 +124,7 @@
     function addToGuessedLetters(letter) {
         for (i = 0; i < guessedLetters.length; i++)
         {
-            if(guessedLetters[i] === letter.toUpperCase()){
+            if(guessedLetters[i] === letter.toUpperCase()){ //return if guessed letter is already in array
                 return;
             }
         }

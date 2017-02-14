@@ -19,6 +19,10 @@
     font-size: xx-large;
 }
 
+#gameboard{
+    letter-spacing: 15px;
+}
+
 .answer-box{
     height: 600px;
 }
