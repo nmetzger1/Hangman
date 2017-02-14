@@ -16,6 +16,7 @@
     background-color: black;
     color: #ffffff;
     height: 800px;
+    font-size: xx-large;
 }
 
 .answer-box{
@@ -25,8 +26,3 @@
 .guessed-letters{
     height: auto;
 }
-
-
-
-
-
