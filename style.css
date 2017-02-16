@@ -1,32 +1,56 @@
+body{
+    background-color: black;
+    font-family: 'Exo', sans-serif;
+}
+
 .header{
-    background-color: blanchedalmond;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
 }
 
-.scoreboard-panel{
-    background-color: bisque;
-    height: 400px;
+.scoreboard-panel, .trivia-panel{
+    border: solid 2px grey;
+    background-color: lightslategray;
+    height: 160px;
 }
 
-.trivia-panel{
-    background-color: bisque;
-    height: 400px;
+.trivia-panel h3{
+    margin: 1%;
+}
+
+h2{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .game-panel{
     background-color: black;
     color: #ffffff;
-    height: 800px;
+    height: 400px;
     font-size: xx-large;
 }
 
 #gameboard{
     letter-spacing: 15px;
+    text-align: center;
+    margin-top: 10%;
+    font-size: xx-large;
 }
 
 .answer-box{
-    height: 600px;
+    border: solid 2px grey;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.answer-box h3{
+    font-size: x-large;
 }
 
 .guessed-letters{
     height: auto;
+    color: cadetblue;
 }
