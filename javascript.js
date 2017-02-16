@@ -88,6 +88,7 @@ function createBoard(word) {
 function checkForWin() {
     if(gameBoard.indexOf("_") === -1){ //if no underscores are left in game board
         wins++;
+        updateScoreboard();
         pressXToStart();
     }
 }
@@ -96,6 +97,7 @@ function checkForLoss() {
     if(missesLeft < 1){
         losses++;
         $("#gameboard").html(chosenWord);
+        updateScoreboard();
         pressXToStart();
     }
 }
