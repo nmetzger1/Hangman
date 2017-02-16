@@ -11,7 +11,7 @@ var losses = 0;
 //Objects
 var starWars = {
     category: "Star Wars",
-    wordBank: ["Lightsaber", "Yoda", "Millennium Falcon", "Luke Skywalker", "Alderaan", "Princess Leia", "Han Solo", "Chewbacca", "Death Star", "X-Wing"],
+    wordBank: ["Lightsaber", "Yoda", "Millennium Falcon", "Luke Skywalker", "Alderaan", "Princess Leia", "Han Solo", "Chewbacca", "Death Star", "X-Wing", "Darth Vader"],
     background: "starwars.png",
     trivia: "The sounds of the TIE fighters in star wars were a combo of an elephant call and a car driving on wet pavement.",
     color: "white"
