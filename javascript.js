@@ -13,7 +13,7 @@ var starWars = {
     category: "Star Wars",
     wordBank: ["Lightsaber", "Yoda", "Millennium Falcon", "Luke Skywalker", "Alderaan", "Princess Leia", "Han Solo", "Chewbacca", "Death Star", "X-Wing", "Darth Vader"],
     background: "starwars.png",
-    trivia: "The sounds of the TIE fighters in star wars were a combo of an elephant call and a car driving on wet pavement.",
+    trivia: "The sounds of the TIE fighters in Star Wars were a combination of an elephant call and a car driving on wet pavement.",
     color: "white"
 };
 
@@ -29,7 +29,7 @@ var bttf = {
     category: "Back to the Future",
     wordBank: ["George McFly", "Marty McFly", "Delorean", "Flux Capacitor", "Hoverboard", "Biff Tannen", "Doc Brown", "Hill Valley", "Twin Pines Mall", "Lorraine Baines", "Principal Strickland"],
     background: "bttf.png",
-    trivia: 'A studio executive suggested that the title should be changed to "Spaceman From Pluto',
+    trivia: 'A studio executive suggested that the title be changed to "Spaceman From Pluto"',
     color: "black"
 };
 

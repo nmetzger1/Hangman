@@ -17,6 +17,9 @@ body{
 
 .trivia-panel h3{
     margin: 1%;
+    text-align: center;
+    font-size: large;
+
 }
 
 h2{
@@ -53,4 +56,14 @@ h2{
 .guessed-letters{
     height: auto;
     color: cadetblue;
+}
+
+@media screen and (max-width: 990px) {
+    .trivia-panel h3{
+        font-size: 3.25vw;
+    }
+
+    .scoreboard-panel{
+        text-align: center;
+    }
 }
